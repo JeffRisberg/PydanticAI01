@@ -4,11 +4,12 @@ A small example project using [pydantic-ai](https://ai.pydantic.dev/) to build a
 
 ## Setup
 
-1. Create and activate a virtual environment (optional but recommended):
+1. Create and activate a virtual environment, then update pip:
 
    ```bash
    python3 -m venv venv
    source venv/bin/activate
+   pip install -U pip
    ```
 
 2. Install dependencies with pip:
