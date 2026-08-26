@@ -176,11 +176,17 @@ def plan_and_execute_trip(request: TripRequest) -> TripItinerary:
         f"Plan the research needed for a trip to {request.destination}.", deps=request
     )
     plan = plan_result.output
+    print(f"\nPlan: {plan}")
+    for step in plan.steps:
+        print(f"{step}")
 
     step_findings: List[str] = []
     for step in plan.steps:
         step_result = executor_agent.run_sync(step.description, deps=request)
         step_findings.append(f"Step {step.step_number} ({step.description}): {step_result.output}")
+    print(f"\nStep findings:")
+    for finding in step_findings:
+          print(f"{finding}")
 
     findings_text = "\n".join(step_findings)
     itinerary_result = combiner_agent.run_sync(
@@ -200,10 +206,10 @@ if __name__ == "__main__":
         budget_usd=2000,
     )
 
-    print(f"Planning trip to {trip_request.destination}...\n")
+    print(f"Planning trip to {trip_request.destination}...")
     itinerary = plan_and_execute_trip(trip_request)
 
-    print("--- Final Itinerary ---")
+    print("\n--- Final Itinerary ---")
     print(f"Summary: {itinerary.summary}")
     print(f"Estimated total cost: ${itinerary.estimated_total_cost:.2f}")
     print(f"Within budget: {itinerary.within_budget}")
