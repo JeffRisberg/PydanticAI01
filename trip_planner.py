@@ -96,7 +96,7 @@ def get_trip_request(ctx: RunContext[TripRequest]) -> str:
 # ---------------------------------------------------------------------------
 
 executor_agent = Agent(
-    "openai:gpt-4o",
+    "openai:gpt-4o-mini",
     deps_type=TripRequest,
     output_type=str,
     instructions=(

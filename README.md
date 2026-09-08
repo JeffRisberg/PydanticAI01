@@ -31,3 +31,13 @@ python main.py
 ```
 
 This runs the dice-game agent, which rolls a die, checks it against a guess, and prints the result.
+
+
+## Running
+
+```bash
+python trip_planner.py
+```
+
+This runs a trip planning agent, which generates a plan and gets details for execution.
+

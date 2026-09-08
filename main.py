@@ -7,7 +7,7 @@ from pydantic_ai import Agent, RunContext
 load_dotenv()
 
 agent = Agent(
-  'openai:gpt-5',
+  'openai:gpt-4o-mini',
   deps_type=str,
   instructions=(
       "You're a dice game, you should roll the die and see if the number "
